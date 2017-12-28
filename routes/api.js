@@ -24,7 +24,7 @@ router.get('/undskyld/all', async function(req, res, next) {
 });
 
 //Submissions
-router.get('/submissions', async function(req, res, next) {
+router.get('/undskyld/submissions', async function(req, res, next) {
   res.setHeader('Content-Type', 'application/json');
   var submissionsArr = await submissions.getSubmissions();
   res.json(submissionsArr);
@@ -38,7 +38,7 @@ router.get('/:id', async function(req, res, next) {
 });
 
 //Post New
-router.post('/:foreslag/:navn', async function(req, res, next) {
+router.post('/undskyld/:foreslag/:navn', async function(req, res, next) {
   res.setHeader('Content-Type', 'application/json');
   await submissions.postNewUndskyldning(req.params.foreslag, req.params.navn);
   res.json({"besked": "Tak for submission!"});
